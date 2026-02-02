@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hassan Maredia - Portfolio</title>
+  <link rel="stylesheet" href="Assest/css/style.css">
+  <link rel="stylesheet" href="Assest/css/response.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    /* CSS-ONLY TEXT SLIDER - FIXED FOR NO OVERLAP */
+    .text-slider-wrapper {
+      display: inline-block;
+      position: relative;
+      height: 45px;
+      overflow: hidden;
+      margin-left: 8px;
+      vertical-align: middle;
+      min-width: 380px;
+      /* Increased for longest text */
+      text-align: left;
+    }
+
+    .sliding-word {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #7cf03d;
+      font-weight: 600;
+      font-size: 32px;
+      opacity: 0;
+      white-space: nowrap;
+      width: 100%;
+      /* GLOW ONLY ON TEXT */
+      text-shadow:
+        0 0 8px rgba(124, 240, 61, 0.9),
+        0 0 16px rgba(124, 240, 61, 0.5);
+      /* Animation with different delays for each word */
+      animation: slideWords 24s infinite, wordGlow 2s ease-in-out infinite;
+    }
+
+    /* Animation delays for 6 words (24s total, 4s each) */
+    .sliding-word:nth-child(1) {
+      animation-delay: 0s, 0s;
+    }
+
+    /* Frontend Developer */
+    .sliding-word:nth-child(2) {
+      animation-delay: 4s, 4s;
+    }
+
+    /* Web Developer */
+    .sliding-word:nth-child(3) {
+      animation-delay: 8s, 8s;
+    }
+
+    /* UI/UX Designer */
+    .sliding-word:nth-child(4) {
+      animation-delay: 12s, 12s;
+    }
+
+    /* JavaScript Developer */
+    .sliding-word:nth-child(5) {
+      animation-delay: 16s, 16s;
+    }
+
+    /* Creative Developer */
+    .sliding-word:nth-child(6) {
+      animation-delay: 20s, 20s;
+    }
+
+    /* Tech Enthusiast */
+
+    /* Word sliding animation - FIXED FOR CLEAN TRANSITION */
+    @keyframes slideWords {
+
+      0%,
+      16.666% {
+        /* 4s out of 24s = 16.666% */
+        opacity: 0;
+        transform: translateY(100%);
+        visibility: hidden;
+      }
+
+      2.083%,
+      14.583% {
+        /* 0.5s fade in/out */
+        opacity: 0;
+        transform: translateY(100%);
+        visibility: visible;
+      }
+
+      4.167%,
+      12.5% {
+        /* 1s display time */
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      8.333%,
+      10.417% {
+        /* 2s hold time */
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      16.666% {
+        opacity: 0;
+        transform: translateY(-100%);
+        visibility: hidden;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-100%);
+        visibility: hidden;
+      }
+    }
+
+    /* Subtler glow animation for words */
+    @keyframes wordGlow {
+
+      0%,
+      100% {
+        text-shadow:
+          0 0 8px rgba(124, 240, 61, 0.9),
+          0 0 16px rgba(124, 240, 61, 0.5);
+      }
+
+      50% {
+        text-shadow:
+          0 0 12px rgba(124, 240, 61, 1),
+          0 0 20px rgba(124, 240, 61, 0.7);
+      }
+    }
+
+    /* Container for better alignment */
+    .typing-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      min-height: 45px;
+    }
+
+    .static-text {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .text-slider-wrapper {
+        min-width: 320px;
+        height: 40px;
+      }
+
+      .sliding-word {
+        font-size: 28px;
+      }
+
+      .static-text {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .text-slider-wrapper {
+        min-width: 280px;
+        height: 35px;
+      }
+
+      .sliding-word {
+        font-size: 24px;
+      }
+
+      .static-text {
+        font-size: 24px;
+        margin-left: 100px;
+      }
+
+      .typing-text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        min-height: 80px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .text-slider-wrapper {
+        min-width: 240px;
+        height: 30px;
+      }
+
+      .sliding-word {
+        font-size: 20px;
+      }
+
+      .static-text {
+        font-size: 20px;
+        margin-left: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="logo">Portfolio.</a>
+    <div class="hamburger" id="hamburger">
+      <i class='bx bx-menu'></i>
+    </div>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Portfolio.html">Portfolio</a></li>
+      <li><a href="Project.html">Projects</a></li>
+      <li><a href="Contect.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content - SIDE BY SIDE LAYOUT -->
+  <main class="home">
+    <div class="home-container">
+      <!-- Text Content on LEFT -->
+      <div class="home-content">
+        <h1 class="glow-text">Hassan Maredia</h1>
+
+        <!-- CSS-ONLY TEXT SLIDER WITH ALL WORDS -->
+        <div class="typing-container">
+          <h2 class="typing-text">
+            <span class="static-text">I'm a</span>
+            <span class="text-slider-wrapper">
+              <span class="sliding-word">Frontend Developer</span>
+              <span class="sliding-word">Web Developer</span>
+              <span class="sliding-word">UI/UX Designer</span>
+              <span class="sliding-word">JavaScript Developer</span>
+              <span class="sliding-word">Creative Developer</span>
+              <span class="sliding-word">Tech Enthusiast</span>
+            </span>
+          </h2>
+        </div>
+
+        <p>I am an enthusiastic and highly motivated Junior Frontend Developer dedicated to building clean,
+          maintainable, and user-friendly digital experiences. My core focus is delivering exceptional frontends while
+          committing to best practices and continuous learning.</p>
+
+        <div class="btn-group">
+          <a href="cv-section.html" class="btn primary-btn">Download CV</a>
+          <div class="social-icons">
+            <a href="https://github.com/hasu786"><i class='bx bxl-github'></i></a>
+            <a href="https://www.linkedin.com/in/hassan-maredia-690986263/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://x.com/HassanMaredia"><i class='bx bxl-twitter'></i></a>
+            <a href="https://www.instagram.com/hassanmaredia_/"><i class='bx bxl-instagram'></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Image on RIGHT -->
+      <div class="home-image">
+        <div class="profile-container">
+          <div class="glow-ring"></div>
+          <div class="profile-image">
+            <img src="Assest/image/home.png" alt="Hassan Maredia"
+              onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // SIMPLE NAVBAR TOGGLE ONLY
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function () {
+          navMenu.classList.toggle('active');
+          const icon = hamburger.querySelector('i');
+          if (navMenu.classList.contains('active')) {
+            icon.classList.remove('bx-menu');
+            icon.classList.add('bx-x');
+          } else {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+          }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+          link.addEventListener('click', function () {
+            navMenu.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+          });
+        });
+      }
+
+      // Close menu on window resize
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 768 && navMenu) {
+          navMenu.classList.remove('active');
+          const icon = hamburger.querySelector('i');
+          if (icon) {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-menu');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

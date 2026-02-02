@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Maredia - CV/Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0e27;
+            --accent-gold: #d4af37;
+            --accent-teal: #2dd4bf;
+            --text-light: #e5e7eb;
+            --text-muted: #9ca3af;
+            --card-bg: #1a1f3a;
+            --gradient-start: #0f172a;
+            --gradient-end: #1e293b;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* CV Container */
+        .cv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Section */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--accent-gold);
+            position: relative;
+        }
+
+        .cv-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--accent-teal);
+        }
+
+        .cv-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cv-title {
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 20px;
+            font-weight: 400;
+            animation: slideDown 0.7s ease;
+        }
+
+        .cv-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            animation: slideDown 0.8s ease;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Section Styling */
+        .cv-section {
+            margin-bottom: 50px;
+            animation: fadeInUp 0.6s ease;
+            animation-fill-mode: both;
+        }
+
+        .cv-section:nth-child(1) { animation-delay: 0.1s; }
+        .cv-section:nth-child(2) { animation-delay: 0.2s; }
+        .cv-section:nth-child(3) { animation-delay: 0.3s; }
+        .cv-section:nth-child(4) { animation-delay: 0.4s; }
+        .cv-section:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--accent-gold), transparent);
+        }
+
+        /* Summary */
+        .cv-summary {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-teal);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .cv-summary:hover {
+            transform: translateX(5px);
+        }
+
+        /* Experience & Education Cards */
+        .timeline-item {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), transparent);
+            transition: width 0.5s ease;
+        }
+
+        .timeline-item:hover::before {
+            width: 100%;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(45, 212, 191, 0.2);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent-teal);
+        }
+
+        .company-name {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            color: var(--accent-gold);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .timeline-description {
+            color: var(--text-muted);
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .timeline-description ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .timeline-description li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .timeline-description li::marker {
+            color: var(--accent-teal);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .skill-category h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(212, 175, 55, 0.1));
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-gold));
+            transform: scale(1.05);
+            border-color: var(--accent-gold);
+        }
+
+        /* Download Button */
+        .download-cv {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-teal));
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(45, 212, 191, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cv-name {
+                font-size: 2.5rem;
+            }
+
+            .cv-title {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .download-cv {
+                display: none;
+            }
+
+            .timeline-item, .skill-category {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header -->
+        <header class="cv-header">
+            <h1 class="cv-name">Hassan Maredia</h1>
+            <p class="cv-title">Full Stack Developer | UI/UX Designer</p>
+            <div class="cv-contact">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:hassan.maredia@example.com">infohassanmaredia@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+91 9930059919</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Bhayandar, Maharashtra, India</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="https://www.linkedin.com/in/hassan-maredia-690986263/" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <a href="https://github.com/hasu786" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="cv-section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="cv-summary">
+                Passionate and creative Full Stack Developer with expertise in building modern, responsive web applications. 
+                Specialized in JavaScript, React, Node.js, and modern web technologies. Strong focus on creating intuitive 
+                user experiences and writing clean, maintainable code. Proven ability to work independently and collaborate 
+                effectively in team environments.
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="cv-section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="job-title">Full Stack Developer</h3>
+                        <p class="company-name">Company Name / Freelance</p>
+                    </div>
+                    <span class="timeline-date">Jan 2023 - Present</span>
+                </div>
+                <div class="timeline-description">
+                    <ul>
+                        <li>Developed and maintained responsive web applications using React, Node.js, and MongoDB</li>
+                        <li>Implemented RESTful APIs and integrated third-party services including payment gateways</li>
+                        <li>Collaborated with designers to create pixel-perfect UI implementations</li>
+                        <li>Optimized application performance resulting in 40% faster load times</li>
+                        <li>Mentored junior developers and conducted code reviews</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="job-title">Frontend Developer</h3>
+                        <p class="company-name">Previous Company</p>
+                    </div>
+                    <span class="timeline-date">Jun 2021 - Dec 2022</span>
+                </div>
+                <div class="timeline-description">
+                    <ul>
+                        <li>Built interactive user interfaces using HTML5, CSS3, JavaScript, and React</li>
+                        <li>Implemented responsive designs and ensured cross-browser compatibility</li>
+                        <li>Worked with design teams using Figma and Adobe XD</li>
+                        <li>Integrated EmailJS and other third-party services for contact forms</li>
+                        <li>Participated in agile development processes and daily standups</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="cv-section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="job-title">Bachelor of Computer Science</h3>
+                        <p class="company-name">University Name</p>
+                    </div>
+                    <span class="timeline-date">2018 - 2022</span>
+                </div>
+                <div class="timeline-description">
+                    Graduated with honors. Specialized in Web Development, Data Structures, and Software Engineering.
+                    Completed capstone project on building a full-stack e-commerce platform.
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="cv-section">
+            <h2 class="section-title">Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript (ES6+)</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">SASS/SCSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Webpack</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">Netlify</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Code Review</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="cv-section">
+            <h2 class="section-title">Notable Projects</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="job-title">Portfolio Website</h3>
+                        <p class="company-name">Personal Project</p>
+                    </div>
+                    <span class="timeline-date">2024</span>
+                </div>
+                <div class="timeline-description">
+                    Built a modern, responsive portfolio website showcasing projects and skills. Implemented smooth animations,
+                    contact form with EmailJS integration, and optimized for performance and SEO.
+                    <br><strong>Technologies:</strong> HTML, CSS, JavaScript, EmailJS
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="job-title">E-Commerce Platform</h3>
+                        <p class="company-name">Client Project</p>
+                    </div>
+                    <span class="timeline-date">2023</span>
+                </div>
+                <div class="timeline-description">
+                    Developed a full-featured e-commerce platform with product catalog, shopping cart, user authentication,
+                    and payment integration. Implemented admin dashboard for inventory management.
+                    <br><strong>Technologies:</strong> React, Node.js, MongoDB, Stripe API
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Button -->
+        <div class="download-cv">
+            <a href="#" class="btn-download" onclick="window.print(); return false;">
+                <span>📄</span>
+                <span>Download CV as PDF</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all timeline items and skill categories
+        document.querySelectorAll('.timeline-item, .skill-category').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
