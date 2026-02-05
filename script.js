@@ -411,6 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            color: black;
         }
         
         .modal-header {
@@ -503,4 +504,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     `;
     document.head.appendChild(style);
+
 });
