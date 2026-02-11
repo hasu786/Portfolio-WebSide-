@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Maredia | Projects</title>
+    <link rel="stylesheet" href="Assest/css/style.css">
+    <link rel="stylesheet" href="Assest/css/response.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">Portfolio.</a>
+        <div class="hamburger" id="hamburger">
+            <i class='bx bx-menu'></i>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Project.html">Projects</a></li>
+            <li><a href="Contect.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Portfolio Hero Section -->
+    <section class="portfolio-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="section-label">My Work</div>
+                <h1 class="hero-title">Portfolio Projects</h1>
+                <div class="title-underline"></div>
+                <p class="hero-subtitle">Showcasing my journey in creating impactful digital experiences through clean
+                    code and thoughtful design.</p>
+
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                    <button class="filter-btn" data-filter="responsive">Responsive</button>
+                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <main class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-grid" id="portfolio-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card" data-category="react responsive">
+                    <div class="project-image">
+                        <img src="Assest\image\E commerce.PNG" alt="E-Commerce Website">
+                        <div class="project-overlay">
+                            <div class="project-tech">
+                                <span>Html</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Website</h3>
+                        <p class="project-description">A modern online store for electronics offering the latest
+                            gadgets, accessories, and devices with easy navigation, detailed product specs, and a fast,
+                            secure checkout experience.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-chart-line"></i> Real-time Updates</span>
+                            <span><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+                            <span><i class="fas fa-bolt"></i> Fast Performance</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/hasu786/E-Commerce-Website" target="_blank"
+                                class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://hasu786.github.io/E-Commerce-Website/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <button class="project-detail-btn" data-project="1">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="javascript responsive">
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="Task Management App">
+                        <div class="project-overlay">
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>CSS3</span>
+                                <span>LocalStorage</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">TaskFlow - Productivity App</h3>
+                        <p class="project-description">A feature-rich task management application with drag-and-drop
+                            functionality, priority settings, and offline capability.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-drag"></i> Drag & Drop</span>
+                            <span><i class="fas fa-cloud"></i> Offline Support</span>
+                            <span><i class="fas fa-palette"></i> Theme Options</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/taskflow-app" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://taskflow.hassanmaredia.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <button class="project-detail-btn" data-project="2">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="react fullstack">
+                    <div class="project-image">
+                        <img src="images/project3.jpg" alt="Social Media Platform">
+                        <div class="project-overlay">
+                            <div class="project-tech">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ConnectHub - Social Platform</h3>
+                        <p class="project-description">A full-stack social media platform with real-time messaging, post
+                            sharing, and user authentication system.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-comments"></i> Real-time Chat</span>
+                            <span><i class="fas fa-shield-alt"></i> Secure Auth</span>
+                            <span><i class="fas fa-image"></i> Media Upload</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/connecthub" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://connecthub.hassanmaredia.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <button class="project-detail-btn" data-project="3">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="javascript responsive">
+                    <div class="project-image">
+                        <img src="images/project4.jpg" alt="Weather Application">
+                        <div class="project-overlay">
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>API Integration</span>
+                                <span>CSS Grid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">WeatherWise - Forecast App</h3>
+                        <p class="project-description">A beautifully designed weather application with 7-day forecasts,
+                            location detection, and animated weather icons.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-map-marker-alt"></i> Geolocation</span>
+                            <span><i class="fas fa-sun"></i> Animated Icons</span>
+                            <span><i class="fas fa-search"></i> City Search</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/weatherwise" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://weatherwise.hassanmaredia.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <button class="project-detail-btn" data-project="4">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="react responsive">
+                    <div class="project-image">
+                        <img src="images/project5.jpg" alt="Restaurant Website">
+                        <div class="project-overlay">
+                            <div class="project-tech">
+                                <span>React</span>
+                                <span>Framer Motion</span>
+                                <span>SCSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Bella Vista Restaurant</h3>
+                        <p class="project-description">A modern restaurant website with online reservation system,
+                            interactive menu, and smooth animations.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-calendar-check"></i> Online Booking</span>
+                            <span><i class="fas fa-utensils"></i> Interactive Menu</span>
+                            <span><i class="fas fa-play"></i> Smooth Animations</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/bella-vista" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://bellavista.hassanmaredia.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <button class="project-detail-btn" data-project="5">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="images/project6.jpg" alt="E-Learning Platform">
+                        <div class="project-overlay">
+                            <div class="project-tech">
+                                <span>Next.js</span>
+                                <span>PostgreSQL</span>
+                                <span>Stripe</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">LearnHub - E-Learning Platform</h3>
+                        <p class="project-description">An online learning platform with course management, progress
+                            tracking, and payment integration.</p>
+                        <div class="project-features">
+                            <span><i class="fas fa-graduation-cap"></i> Course Management</span>
+                            <span><i class="fas fa-chart-bar"></i> Progress Tracking</span>
+                            <span><i class="fas fa-credit-card"></i> Payment System</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/learnhub" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://learnhub.hassanmaredia.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <button class="project-detail-btn" data-project="6">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state">
+                <i class="fas fa-search empty-icon"></i>
+                <h3>No projects found</h3>
+                <p>Try selecting a different category or check back soon for new projects!</p>
+                <button class="btn-reset-filters">Reset Filters</button>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="portfolio-cta">
+                <h2>Have a project in mind?</h2>
+                <p>I'm always excited to collaborate on new and challenging projects. Let's discuss how we can work
+                    together!</p>
+                <a href="contect.html" class="btn-contact-large">
+                    Start a Project <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Project Details Modal -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-content" id="modal-content">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="current-year"></span> Hassan Maredia. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="mailto:hello@hassanmaredia.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
