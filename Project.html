@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Projects Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Assest/css/style.css">
+    <link rel="stylesheet" href="Assest/css/response.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #6c757d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: chartreuse;
+            margin-top: 50px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skills-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            height: 200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .project-img i {
+            z-index: 2;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-img::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.3), transparent);
+            z-index: 1;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: chartreuse;
+        }
+
+        .project-description {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            padding: 5px 12px;
+            background-color: #e9ecef;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .html {
+            color: #e34f26;
+        }
+
+        .css {
+            color: #1572b6;
+        }
+
+        .js {
+            color: #f7df1e;
+            background-color: #323330;
+        }
+
+        .python {
+            color: #3776ab;
+        }
+
+        .sql {
+            color: #00758f;
+        }
+
+        .tablo {
+            color: #ff6b6b;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: chartreuse;
+            color: rgb(0, 0, 0);
+        }
+
+        .btn-primary:hover {
+            background-color: chartreuse;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: chartreuse;
+            border: 2px solid chartreuse;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(74, 111, 165, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray);
+            border-top: 1px solid #dee2e6;
+            margin-top: 20px;
+        }
+
+        .no-projects {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-top: 50px;
+            }
+
+            .skills-filter {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">Portfolio.</a>
+        <div class="hamburger" id="hamburger">
+            <i class='bx bx-menu'></i>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Project.html">Projects</a></li>
+            <li><a href="Contect.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>My Projects</h1>
+            <p class="tagline">A showcase of my work across multiple technologies including HTML, CSS, JavaScript,
+                Python, SQL, and Tablo. Click on the filters to view projects by technology.</p>
+        </header>
+
+        <div class="skills-filter">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="html">HTML/CSS</button>
+            <button class="filter-btn" data-filter="js">JavaScript</button>
+            <button class="filter-btn" data-filter="python">Python</button>
+            <button class="filter-btn" data-filter="sql">SQL</button>
+            <button class="filter-btn" data-filter="tablo">Tablo</button>
+        </div>
+
+        <div class="projects-container" id="projectsContainer">
+            <!-- Projects will be dynamically loaded here -->
+        </div>
+
+        <footer>
+            <p>© 2023 My Portfolio. All projects are demonstrations of my skills with various technologies.</p>
+            <p>This projects section is built with HTML, CSS, and JavaScript.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Project data
+        const projects = [
+            {
+                id: 1,
+                title: "Responsive E-Commerce Website",
+                description: "A fully responsive online store with shopping cart functionality, user authentication, and payment integration.",
+                tech: ["html", "css", "js", "python"],
+                image: "Assest/image/E commerce.PNG",
+                demoLink: "https://hasu786.github.io/E-Commerce-Website/",
+                codeLink: "https://github.com/hasu786/E-Commerce-Website"
+            },
+            {
+                id: 2,
+                title: "Data Analytics Dashboard",
+                description: "Interactive dashboard for visualizing business metrics with real-time data updates and custom reporting.",
+                tech: ["js", "python", "sql", "tablo"],
+                image: "Assest/image/Dashboard.PNG",
+                demoLink: "https://hasu786.github.io/Analytics-dashboard/",
+                codeLink: "https://github.com/hasu786/Analytics-dashboard"
+            },
+            {
+                id: 3,
+                title: "Task Management Application",
+                description: "Collaborative task manager with drag-and-drop functionality, team assignments, and progress tracking.",
+                tech: ["html", "css", "js", "python"],
+                image: "Assest/image/task management.PNG",
+                demoLink: "https://hasu786.github.io/Task-Management-Web-App/",
+                codeLink: "https://github.com/hasu786/Task-Management-Web-App"
+            },
+            {
+                id: 4,
+                title: "Customer Database System",
+                description: "A comprehensive customer relationship management system with data analytics and reporting features.",
+                tech: ["python", "sql", "tablo"],
+                image: "Assest/image/customer.png",
+                icon: "fas fa-database",
+                demoLink: "#",
+                codeLink: "#"
+            },
+            {
+                id: 5,
+                title: "Interactive Data Visualization",
+                description: "A web application for creating interactive charts and graphs from CSV or database data sources.",
+                tech: ["html", "css", "js", "tablo"],
+                image: "Assest/image/visualization.png",
+                icon: "fas fa-chart-bar",
+                demoLink: "#",
+                codeLink: "#"
+            },
+            {
+                id: 6,
+                title: "API Integration Platform",
+                description: "Middleware platform that connects multiple APIs with data transformation and workflow automation.",
+                tech: ["python", "js", "sql"],
+                image: "Assest/image/api.png",
+                icon: "fas fa-code-branch",
+                demoLink: "#",
+                codeLink: "#"
+            },
+            {
+                id: 7,
+                title: "Portfolio Website",
+                description: "Modern, responsive portfolio website with animated elements and project showcase section.",
+                tech: ["html", "css", "js"],
+                image: "Assest/image/Portfolio.PNG",
+                demoLink: "https://hasu786.github.io/Resume-Website/",
+                codeLink: "https://github.com/hasu786/Resume-Website"
+            },
+            {
+                id: 8,
+                title: "Inventory Management System",
+                description: "Complete inventory tracking system with barcode scanning, reporting, and predictive analytics.",
+                tech: ["python", "sql", "tablo", "js"],
+                image: "Assest/image/inventory.png",
+                icon: "fas fa-boxes",
+                demoLink: "#",
+                codeLink: "#"
+            }
+        ];
+
+        // Technology details for display
+        const techDetails = {
+            html: { name: "HTML5", class: "html", icon: "fab fa-html5" },
+            css: { name: "CSS3", class: "css", icon: "fab fa-css3-alt" },
+            js: { name: "JavaScript", class: "js", icon: "fab fa-js-square" },
+            python: { name: "Python", class: "python", icon: "fab fa-python" },
+            sql: { name: "SQL", class: "sql", icon: "fas fa-database" },
+            tablo: { name: "Tablo", class: "tablo", icon: "fas fa-table" }
+        };
+
+        // DOM elements
+        const projectsContainer = document.getElementById('projectsContainer');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        // Render projects
+        function renderProjects(filter = 'all') {
+            projectsContainer.innerHTML = '';
+
+            const filteredProjects = filter === 'all'
+                ? projects
+                : projects.filter(project => project.tech.includes(filter));
+
+            if (filteredProjects.length === 0) {
+                projectsContainer.innerHTML = `
+                    <div class="no-projects">
+                        <i class="fas fa-search fa-3x" style="color: var(--gray); margin-bottom: 20px;"></i>
+                        <h3>No projects found for this filter</h3>
+                        <p>Try selecting a different technology filter to see more projects.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredProjects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card';
+
+                // Create tech tags HTML
+                let techTagsHTML = '';
+                project.tech.forEach(tech => {
+                    const techInfo = techDetails[tech];
+                    techTagsHTML += `<span class="tech-tag ${techInfo.class}"><i class="${techInfo.icon}"></i> ${techInfo.name}</span>`;
+                });
+
+                projectCard.innerHTML = `
+                    <div class="project-img">
+                    <img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'">
+                    <i class="${project.icon}"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-description">${project.description}</p>
+                        <div class="tech-stack">
+                            ${techTagsHTML}
+                        </div>
+                        <div class="project-links">
+                            <a href="${project.demoLink}" class="btn btn-primary" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="${project.codeLink}" class="btn btn-secondary" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                projectsContainer.appendChild(projectCard);
+            });
+        }
+
+        // Generate random colors for project headers
+        function getRandomColor() {
+            const colors = [
+                '#4a6fa5', '#166088', '#ff6b6b',
+                '#6b5b95', '#88b04b', '#ffa500',
+                '#955251', '#b565a7', '#009b77'
+            ];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Add event listeners to filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter projects
+                const filter = button.getAttribute('data-filter');
+                renderProjects(filter);
+            });
+        });
+
+        // Initialize with all projects
+        renderProjects();
+    </script>
+    <script>
+        // SIMPLE NAVBAR TOGGLE ONLY
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function () {
+                    navMenu.classList.toggle('active');
+                    const icon = hamburger.querySelector('i');
+                    if (navMenu.classList.contains('active')) {
+                        icon.classList.remove('bx-menu');
+                        icon.classList.add('bx-x');
+                    } else {
+                        icon.classList.remove('bx-x');
+                        icon.classList.add('bx-menu');
+                    }
+                });
+
+                // Close menu on link click
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', function () {
+                        navMenu.classList.remove('active');
+                        const icon = hamburger.querySelector('i');
+                        icon.classList.remove('bx-x');
+                        icon.classList.add('bx-menu');
+                    });
+                });
+            }
+
+            // Close menu on window resize
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768 && navMenu) {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('bx-x');
+                        icon.classList.add('bx-menu');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
